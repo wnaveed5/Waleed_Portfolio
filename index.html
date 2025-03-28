@@ -131,62 +131,112 @@
         .work-item {
             display: flex;
             margin-bottom: 1rem;
-            border-radius: 0.25rem;
-            overflow: hidden;
-            transition: box-shadow 0.3s;
+            border-radius: 0.5rem;
+            background-color: transparent;
+            padding: 1rem;
+            transition: all 0.3s ease;
         }
 
         .work-logo {
-            width: 120px;
-            height: 120px;
+            flex: none;
+            width: auto;
+            height: auto;
+            margin: 0;
+            padding: 0;
+            background: none;
+            box-shadow: none;
+        }
+
+        .work-logo img {
+            width: 60px;
+            height: 60px;
+            border-radius: 9999px;
+            border: 1px solid var(--border);
             background-color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 12px;
-            margin: auto 1rem;
-            padding: 10px;
+            padding: 4px;
         }
 
         .work-details {
             flex-grow: 1;
-            padding: 0.5rem 0;
+            margin-left: 1rem;
+            display: flex;
+            flex-direction: column;
         }
 
         .work-header {
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
+            gap: 0.5rem;
+            font-size: 0.875rem;
         }
 
         .work-title {
-            font-weight: bold;
-            font-size: 0.875rem;
-            display: flex;
+            font-weight: 600;
+            font-size: 0.75rem;
+            display: inline-flex;
             align-items: center;
+            justify-content: center;
+        }
+
+        @media (min-width: 640px) {
+            .work-title {
+                font-size: 0.875rem;
+            }
         }
 
         .work-period {
             font-size: 0.75rem;
             color: var(--muted);
+            text-align: right;
+        }
+
+        @media (min-width: 640px) {
+            .work-period {
+                font-size: 0.875rem;
+            }
         }
 
         .work-role {
             font-size: 0.75rem;
-            color: var(--muted);
+            font-family: system-ui, -apple-system, sans-serif;
         }
 
         .work-description {
-            font-size: 0.75rem;
-            color: var(--muted);
             margin-top: 0.5rem;
+            font-size: 0.75rem;
+            opacity: 0;
             height: 0;
-            overflow: hidden;
-            transition: height 0.3s;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            color: var(--muted);
+        }
+
+        @media (min-width: 640px) {
+            .work-description {
+                font-size: 0.875rem;
+            }
         }
 
         .work-item:hover .work-description {
+            opacity: 1;
             height: auto;
+            padding-top: 0.5rem;
+        }
+
+        .chevron {
+            width: 16px;
+            height: 16px;
+            transform: translateX(0);
+            opacity: 0;
+            transition: all 0.3s ease-out;
+        }
+
+        .work-item:hover .chevron {
+            transform: translateX(4px);
+            opacity: 1;
         }
 
         /* Skills styles */
@@ -208,11 +258,13 @@
             display: grid;
             grid-template-columns: 1fr;
             gap: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         @media (min-width: 640px) {
             .projects-grid {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: 1fr;
             }
         }
 
@@ -224,6 +276,7 @@
             height: 100%;
             display: flex;
             flex-direction: column;
+            background-color: transparent;
         }
 
         .project-card:hover {
@@ -262,10 +315,11 @@
         }
 
         .project-tag {
-            background-color: #222;
+            border: 1px solid var(--border);
             padding: 0 0.25rem;
             font-size: 0.625rem;
             border-radius: 0.25rem;
+            color: var(--muted);
         }
 
         .project-links {
@@ -289,29 +343,36 @@
 
         /* Testimonial styles */
         .testimonial {
-            border: 1px solid var(--border);
-            padding: 1.5rem;
+            border-radius: 0.5rem;
+            background-color: transparent;
+            padding: 1rem;
         }
 
         .testimonial-header {
             display: flex;
             gap: 1rem;
             margin-bottom: 1rem;
+            align-items: center;
         }
 
         .testimonial-avatar {
-            width: 120px;
-            height: 120px;
+            flex: none;
+            width: 60px;
+            height: 60px;
+        }
+
+        .testimonial-avatar img {
+            width: 100%;
+            height: 100%;
+            border-radius: 9999px;
+            border: 1px solid var(--border);
             background-color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 12px;
-            padding: 10px;
+            padding: 4px;
         }
 
         .testimonial-author {
-            font-weight: 500;
+            font-weight: 600;
+            font-size: 0.875rem;
         }
 
         .testimonial-role {
@@ -320,10 +381,15 @@
         }
 
         .testimonial-quote {
-            border-left: 2px solid var(--border);
+            border-left: 2px solid var(--muted);
             padding-left: 1rem;
-            font-style: italic;
             color: var(--muted);
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            font-style: normal;
         }
 
         /* Contact styles */
@@ -355,17 +421,21 @@
             50% { opacity: 0; }
         }
 
-        /* Chevron icon for work items */
-        .chevron {
-            margin-left: 0.25rem;
-            opacity: 0;
-            transform: translateX(0);
-            transition: opacity 0.3s, transform 0.3s;
+        /* Image styles */
+        .aspect-square {
+            aspect-ratio: 1 / 1;
         }
-
-        .work-item:hover .chevron {
-            opacity: 1;
-            transform: translateX(4px);
+        
+        .h-full {
+            height: 100%;
+        }
+        
+        .w-full {
+            width: 100%;
+        }
+        
+        .object-contain {
+            object-fit: contain;
         }
     </style>
 </head>
@@ -401,24 +471,46 @@
             <div class="profile-pic">WN</div>
         </header>
 
+        <!-- Projects Section -->
+        <section id="projects-section">
+            <h2 class="section-title">$$ ls projects/</h2>
+            <div class="section-content">
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-content">
+                            <h3 class="project-title">AI Clothing Recommendation System</h3>
+                            <time class="project-period">2024</time>
+                            <p class="project-description">
+                                Developed an AI-based system using Python and TensorFlow to recommend clothing based on user preferences (Capstone Project).
+                            </p>
+                            <div class="project-tags">
+                                <span class="project-tag">Python</span>
+                                <span class="project-tag">TensorFlow</span>
+                                <span class="project-tag">AI</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Work Experience Section -->
         <section id="work-section">
             <h2 class="section-title">$$ cat work.md</h2>
             <div class="section-content">
                 <div class="work-item">
-                    <div class="work-logo">SS</div>
+                    <div class="work-logo">
+                        <img class="aspect-square h-full w-full object-contain" src="images/skill samurai logo.png" alt="Skill Samurai Logo">
+                    </div>
                     <div class="work-details">
                         <div class="work-header">
                             <h3 class="work-title">
                                 Skill Samurai
-                                <span class="chevron">›</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chevron"><path d="m9 18 6-6-6-6"></path></svg>
                             </h3>
                             <span class="work-period">Aug 2023 - Jan 2024</span>
                         </div>
                         <div class="work-role">Coding Tutor</div>
-                        <div class="work-description">
-                            Designed and executed a curriculum focused on coding, robotics, and game development for children ages 7-14. Tutored over 10 students, facilitating a 20% improvement in coding test performance. Fostered a collaborative and inclusive learning environment that encouraged creativity and enhanced problem-solving abilities.
-                        </div>
                     </div>
                 </div>
             </div>
@@ -430,20 +522,17 @@
             <div class="section-content">
                 <div class="work-item">
                     <div class="work-logo">
-                        <img src="images/supercat-logo.png" alt="Texas State University Logo" style="width: 100%; height: 100%; object-fit: contain;">
+                        <img class="aspect-square h-full w-full object-contain" src="images/supercat-logo.png" alt="Texas State University Logo">
                     </div>
                     <div class="work-details">
                         <div class="work-header">
                             <h3 class="work-title">
                                 Texas State University
-                                <span class="chevron">›</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chevron"><path d="m9 18 6-6-6-6"></path></svg>
                             </h3>
                             <span class="work-period">Graduated Aug 2024</span>
                         </div>
                         <div class="work-role">B.Sc. Computer Science, GPA: 3.2/4.0</div>
-                        <div class="work-description">
-                            Capstone Project: Developed an AI-based clothing recommendation system using Python and TensorFlow. Relevant Coursework: Data Structures and Algorithms, Computer Architecture, Software Engineering, Computer Security, Artificial Intelligence, Internet Software Development.
-                        </div>
                     </div>
                 </div>
             </div>
@@ -472,43 +561,6 @@
             </div>
         </section>
 
-        <!-- Projects Section (Extracurriculars adapted here) -->
-        <section id="projects-section">
-            <h2 class="section-title">$$ ls projects/</h2>
-            <div class="section-content">
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <div class="project-content">
-                            <h3 class="project-title">Fashion Merchandising Association</h3>
-                            <time class="project-period">Aug 2024 - Dec 2024</time>
-                            <p class="project-description">
-                                Created themed outfits for models and collaborated with designers and creative teams to produce a visually appealing fashion show. Managed wardrobe and coordinated fittings.
-                            </p>
-                            <div class="project-tags">
-                                <span class="project-tag">Fashion Design</span>
-                                <span class="project-tag">Collaboration</span>
-                                <span class="project-tag">Event Management</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-content">
-                            <h3 class="project-title">AI Clothing Recommendation System</h3>
-                            <time class="project-period">2024</time>
-                            <p class="project-description">
-                                Developed an AI-based system using Python and TensorFlow to recommend clothing based on user preferences (Capstone Project).
-                            </p>
-                            <div class="project-tags">
-                                <span class="project-tag">Python</span>
-                                <span class="project-tag">TensorFlow</span>
-                                <span class="project-tag">AI</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- Testimonials Section (Honors adapted here) -->
         <section id="testimonials-section">
             <h2 class="section-title">$$ cat honors.md</h2>
@@ -516,7 +568,7 @@
                 <div class="testimonial">
                     <div class="testimonial-header">
                         <div class="testimonial-avatar">
-                            <img src="images/supercat-logo.png" alt="Texas State University Logo" style="width: 100%; height: 100%; object-fit: contain;">
+                            <img class="aspect-square h-full w-full object-contain" src="images/supercat-logo.png" alt="Texas State University Logo">
                         </div>
                         <div>
                             <h3 class="testimonial-author">Texas State University</h3>
@@ -524,7 +576,9 @@
                         </div>
                     </div>
                     <blockquote class="testimonial-quote">
-                        "Texas State Achievement Scholarship Recipient, Dean's List (Fall 2021, Fall 2022), Best Stylist at Texas State FMA's Fashion Show."
+                        Texas State Achievement Scholarship Recipient
+                        Dean's List (Fall 2021, Fall 2022)
+                        Best Stylist at Texas State FMA's Fashion Show
                     </blockquote>
                 </div>
             </div>
