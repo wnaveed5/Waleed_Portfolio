@@ -479,16 +479,120 @@
         .logo:hover {
             opacity: 1;
         }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(4px);
+        }
+
+        .modal-content {
+            background-color: #1a1a1a;
+            margin: 15% auto;
+            padding: 2rem;
+            border: 1px solid #333;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 700px;
+            position: relative;
+            color: #fff;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #333;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            color: #fff;
+            margin: 0;
+        }
+
+        .close-button {
+            color: #666;
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0.5rem;
+        }
+
+        .close-button:hover {
+            color: #fff;
+        }
+
+        .stat-item {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .stat-item::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #64ffda;
+        }
+
+        .stat-highlight {
+            color: #64ffda;
+            font-weight: bold;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .project-link.stats-button {
+            background-color: transparent;
+            border: 1px solid #64ffda;
+            color: #64ffda;
+        }
+
+        .project-link.stats-button:hover {
+            background-color: rgba(100, 255, 218, 0.1);
+        }
     </style>
+    <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = "block";
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = "none";
+                document.body.style.overflow = "auto";
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="container">
         <!-- Header Section -->
         <header class="header">
             <div class="header-content">
-                <div class="logo-container">
-                    <img src="images/scamp-logo.png" alt="WN Logo" class="logo" style="background: #fff; padding: 0.5rem;">
-                </div>
                 <nav class="nav">
                     <h1 class="command-line">
                         <span>~/waleed $</span>
@@ -530,13 +634,14 @@
                             <h3 class="project-title">Homura Studios</h3>
                             <time class="project-period">2025</time>
                             <p class="project-description">
-                                Contributed to the development of a Japanese-inspired media studio focused on creating immersive experiences with a distinctive aesthetic.
+                                A Shopify-based clothing store designed with custom Liquid templates, featuring tailored product pages and optimized checkout flows.
                             </p>
                             <div class="project-tags">
-                                <span class="project-tag">Next.js</span>
-                                <span class="project-tag">React</span>
+                                <span class="project-tag">Shopify</span>
+                                <span class="project-tag">Liquid</span>
+                                <span class="project-tag">HTML</span>
+                                <span class="project-tag">CSS</span>
                                 <span class="project-tag">JavaScript</span>
-                                <span class="project-tag">TailwindCSS</span>
                             </div>
                             <div class="project-links">
                                 <a href="https://homurastudios.com" target="_blank" class="project-link">
@@ -547,6 +652,13 @@
                                     </svg>
                                     Visit Site
                                 </a>
+                                <button onclick="openModal('homuraStats')" class="project-link stats-button">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M3 3v18h18"></path>
+                                        <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"></path>
+                                    </svg>
+                                    View Stats
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -583,14 +695,14 @@
                         <img src="images/scamp-logo.png" alt="Scamp Logo" class="project-image" style="padding: 2rem; background: #fff; object-fit: contain;">
                         <div class="project-content">
                             <h3 class="project-title">Scamp</h3>
-                            <time class="project-period">2025</time>
+                            <time class="project-period">Jan 2025 - Apr 2025</time>
                             <p class="project-description">
-                                A modern web application built with cutting-edge technologies, featuring a clean and responsive user interface. Developed using Vite and React with TypeScript for type safety and better developer experience.
+                                A modern e-commerce platform for smoking accessories, built with React and integrated with Shopify's headless architecture. Features a responsive design and optimized checkout process.
                             </p>
                             <div class="project-tags">
                                 <span class="project-tag">React</span>
                                 <span class="project-tag">TypeScript</span>
-                                <span class="project-tag">Vite</span>
+                                <span class="project-tag">Shopify</span>
                                 <span class="project-tag">Tailwind CSS</span>
                                 <span class="project-tag">shadcn-ui</span>
                             </div>
@@ -601,6 +713,13 @@
                                     </svg>
                                     GitHub
                                 </a>
+                                <button onclick="openModal('scampStats')" class="project-link stats-button">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M3 3v18h18"></path>
+                                        <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"></path>
+                                    </svg>
+                                    View Stats
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -709,6 +828,44 @@
                 </p>
             </div>
         </section>
+    </div>
+
+    <!-- Scamp Stats Modal -->
+    <div id="scampStats" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Scamp - Project Statistics</h2>
+                <button class="close-button" onclick="closeModal('scampStats')">&times;</button>
+            </div>
+            <div class="stat-item">
+                Developed a responsive front-end for an online smoking accessories store, driving a <span class="stat-highlight">35% increase in user engagement</span> (from 1,000 to 1,350 monthly active users).
+            </div>
+            <div class="stat-item">
+                Integrated Shopify Buy SDK in a headless architecture, boosting sales by <span class="stat-highlight">50%</span> (from $2,000 to $3,000 monthly revenue) through streamlined product listings and checkout processes.
+            </div>
+            <div class="stat-item">
+                Reduced cart abandonment rate by <span class="stat-highlight">20%</span> (from 60% to 40%) by optimizing the UI/UX with reusable React components and real-time cart updates.
+            </div>
+        </div>
+    </div>
+
+    <!-- Homura Stats Modal -->
+    <div id="homuraStats" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Homura Studios - Project Statistics</h2>
+                <button class="close-button" onclick="closeModal('homuraStats')">&times;</button>
+            </div>
+            <div class="stat-item">
+                Grew monthly sales by <span class="stat-highlight">50%</span> (from $2,000 to $3,000) and increased traffic by <span class="stat-highlight">40%</span> (from 1,000 to 1,400 visitors) within two months of launch.
+            </div>
+            <div class="stat-item">
+                Increased average session duration by <span class="stat-highlight">30%</span> (from 2 to 2.6 minutes) through optimized product pages and streamlined checkout flows.
+            </div>
+            <div class="stat-item">
+                Implemented custom Liquid templates and responsive design patterns, resulting in improved user engagement and conversion rates across desktop and mobile devices.
+            </div>
+        </div>
     </div>
 
     <script>
