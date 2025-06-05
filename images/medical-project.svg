@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="200" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background -->
+    <rect width="400" height="200" fill="#ffffff"/>
+    
+    <!-- Medical Cross -->
+    <g transform="translate(200, 100)">
+        <!-- Circle background -->
+        <circle cx="0" cy="0" r="60" fill="#f0f8ff"/>
+        <circle cx="0" cy="0" r="55" fill="#ffffff" stroke="#4AF626" stroke-width="2"/>
+        
+        <!-- Medical cross -->
+        <rect x="-15" y="-40" width="30" height="80" fill="#4AF626"/>
+        <rect x="-40" y="-15" width="80" height="30" fill="#4AF626"/>
+    </g>
+    
+    <!-- Data visualization elements -->
+    <g transform="translate(320, 40)">
+        <!-- Bar chart -->
+        
+    </g>
+    
+    <!-- Text -->
+    <text x="200" y="180" font-family="Arial" font-size="14" fill="#333333" text-anchor="middle">Healthcare Denial Management</text>
+</svg> 
