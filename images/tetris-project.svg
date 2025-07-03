@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="200" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background -->
+    <rect width="400" height="200" fill="#000000"/>
+    
+    <!-- Tetris Grid Background -->
+    <g stroke="#333333" stroke-width="1" fill="none">
+        <!-- Vertical lines -->
+        <line x1="150" y1="50" x2="150" y2="150"/>
+        <line x1="170" y1="50" x2="170" y2="150"/>
+        <line x1="190" y1="50" x2="190" y2="150"/>
+        <line x1="210" y1="50" x2="210" y2="150"/>
+        <line x1="230" y1="50" x2="230" y2="150"/>
+        <line x1="250" y1="50" x2="250" y2="150"/>
+        
+        <!-- Horizontal lines -->
+        <line x1="150" y1="70" x2="250" y2="70"/>
+        <line x1="150" y1="90" x2="250" y2="90"/>
+        <line x1="150" y1="110" x2="250" y2="110"/>
+        <line x1="150" y1="130" x2="250" y2="130"/>
+        <line x1="150" y1="150" x2="250" y2="150"/>
+    </g>
+    
+    <!-- Tetris Blocks -->
+    <g>
+        <!-- T-piece (green) -->
+        <rect x="170" y="50" width="20" height="20" fill="#4AF626" stroke="#333" stroke-width="1"/>
+        <rect x="190" y="50" width="20" height="20" fill="#4AF626" stroke="#333" stroke-width="1"/>
+        <rect x="210" y="50" width="20" height="20" fill="#4AF626" stroke="#333" stroke-width="1"/>
+        <rect x="190" y="70" width="20" height="20" fill="#4AF626" stroke="#333" stroke-width="1"/>
+        
+        <!-- L-piece (blue) -->
+        <rect x="150" y="130" width="20" height="20" fill="#00BFFF" stroke="#333" stroke-width="1"/>
+        <rect x="170" y="130" width="20" height="20" fill="#00BFFF" stroke="#333" stroke-width="1"/>
+        <rect x="190" y="130" width="20" height="20" fill="#00BFFF" stroke="#333" stroke-width="1"/>
+        <rect x="190" y="110" width="20" height="20" fill="#00BFFF" stroke="#333" stroke-width="1"/>
+        
+        <!-- Square piece (yellow) -->
+        <rect x="210" y="110" width="20" height="20" fill="#FFD700" stroke="#333" stroke-width="1"/>
+        <rect x="230" y="110" width="20" height="20" fill="#FFD700" stroke="#333" stroke-width="1"/>
+        <rect x="210" y="130" width="20" height="20" fill="#FFD700" stroke="#333" stroke-width="1"/>
+        <rect x="230" y="130" width="20" height="20" fill="#FFD700" stroke="#333" stroke-width="1"/>
+    </g>
+    
+    <!-- DevOps Icons -->
+    <g transform="translate(50, 80)">
+        <!-- Docker Icon (simplified) -->
+        <rect x="0" y="0" width="30" height="20" fill="#0db7ed" rx="3"/>
+        <text x="15" y="14" font-family="Arial" font-size="8" fill="white" text-anchor="middle">Docker</text>
+    </g>
+    
+    <g transform="translate(50, 110)">
+        <!-- Kubernetes Icon (simplified) -->
+        <circle cx="15" cy="10" r="10" fill="#326ce5"/>
+        <text x="15" y="14" font-family="Arial" font-size="6" fill="white" text-anchor="middle">K8s</text>
+    </g>
+    
+    <g transform="translate(320, 80)">
+        <!-- Jenkins Icon (simplified) -->
+        <rect x="0" y="0" width="30" height="20" fill="#d33833" rx="3"/>
+        <text x="15" y="14" font-family="Arial" font-size="7" fill="white" text-anchor="middle">Jenkins</text>
+    </g>
+    
+    <g transform="translate(320, 110)">
+        <!-- ArgoCD Icon (simplified) -->
+        <rect x="0" y="0" width="30" height="20" fill="#ef7b4d" rx="3"/>
+        <text x="15" y="14" font-family="Arial" font-size="7" fill="white" text-anchor="middle">ArgoCD</text>
+    </g>
+    
+    <!-- Title -->
+    <text x="200" y="25" font-family="Arial" font-size="16" fill="#4AF626" text-anchor="middle" font-weight="bold">React Tetris V1</text>
+    <text x="200" y="180" font-family="Arial" font-size="12" fill="#888888" text-anchor="middle">DevOps + Gaming</text>
+</svg> 
